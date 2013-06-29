@@ -1,5 +1,6 @@
 class Course < ActiveRecord::Base
-  belongs_to :user
+  has_many :enrollments
+  has_many :members, through: :enrollments, source: :user
 
   validates :title, presence: true
   validates :password, presence: true

@@ -24,10 +24,13 @@ class CoursesController < ApplicationController
   # POST /courses
   # POST /courses.json
   def create
+    @enrollment = Enrollment.new(instructor: true)
     @course = Course.new(course_params)
+    @course.enrollments << @enrollment
+    current_user.enrollments << @enrollment
 
     respond_to do |format|
-      if @course.save
+      if @enrollment.save and @course.save and current_user.save
         format.html { redirect_to root_url, notice: 'Course was successfully created.' }
         format.json { render action: 'show', status: :created, location: @course }
       else

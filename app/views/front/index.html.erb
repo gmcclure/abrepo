@@ -4,10 +4,10 @@
   <p>An annotated bibliography tool for college coursework.</p>
 <% end %>
 
-<% if current_user && current_user.courses.count > 0 %>
+<% if current_user && current_user.courses_taught.count > 0 %>
   <h3>Your Courses</h3>
   <ul>
-  <% current_user.courses.each do |course| %>
+  <% current_user.courses_taught.each do |course| %>
     <li><%= link_to course.title, course %></li>
   <% end %>
   </ul>
