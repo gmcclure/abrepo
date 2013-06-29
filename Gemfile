@@ -42,6 +42,9 @@ end
 
 gem 'cucumber-rails', group: :test
 
+gem 'omniauth-google-oauth2'
+gem 'settingslogic'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
