@@ -1,7 +1,8 @@
-<h3>Welcome to the ABRepo.</h3>
-
 <% if not current_user %>
+<div class="hero-unit">
+  <h1>Welcome to the ABRepo.</h1>
   <p>An annotated bibliography tool for college coursework.</p>
+</div>
 <% end %>
 
 <% if current_user && current_user.courses_taught.count > 0 %>
