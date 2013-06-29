@@ -1,1 +1,14 @@
 <h3>Welcome to the ABRepo.</h3>
+
+<% if not current_user %>
+  <p>An annotated bibliography tool for college coursework.</p>
+<% end %>
+
+<% if current_user && current_user.courses.count > 0 %>
+  <h3>Your Courses</h3>
+  <ul>
+  <% current_user.courses.each do |course| %>
+    <li><%= link_to course.title, course %></li>
+  <% end %>
+  </ul>
+<% end %>
