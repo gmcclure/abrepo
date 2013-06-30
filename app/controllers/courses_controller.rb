@@ -64,6 +64,32 @@ class CoursesController < ApplicationController
     end
   end
 
+  # GET /course/new_enrollment
+  def new_enrollment
+    @errors = []
+  end
+
+  # POST /course/join
+  def join
+    @errors = []
+    @course = Course.find_by_code(params[:course_code])
+    @enrollment = nil
+    if @course and @course.password == params[:course_password]
+      @enrollment = Enrollment.new(instructor: false)
+      @course.enrollments << @enrollment
+      current_user.enrollments << @enrollment
+    end
+
+    respond_to do |format|
+      if @course and @enrollment and @enrollment.save and @course.save and current_user.save
+        format.html { redirect_to root_url, notice: 'You have successfully joined the course.' }
+      else
+        @errors = ['You have either an incorrect course code or an incorrect course password.']
+        format.html { render action: 'new_enrollment', locals: { errors: @errors } }
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course

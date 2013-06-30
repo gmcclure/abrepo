@@ -13,3 +13,12 @@
   <% end %>
   </ul>
 <% end %>
+
+<% if current_user && current_user.enrolled_courses.count > 0 %>
+  <h3>Enrolled Courses</h3>
+  <ul>
+  <% current_user.enrolled_courses.each do |course| %>
+    <li><%= link_to course.title, course %></li>
+  <% end %>
+  </ul>
+<% end %>

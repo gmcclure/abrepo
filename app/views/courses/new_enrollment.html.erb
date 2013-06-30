@@ -1,0 +1,31 @@
+<h2>Join a Course</h2>
+
+<%= form_tag course_join_path do %>
+
+  <% if @errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@errors.count, "error") %> prohibited this course from being saved:</h2>
+
+      <ul>
+      <% @errors.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+  <%= label_tag :course_code, 'Course Code' %>
+  <%= text_field_tag :course_code %>
+  </div>
+
+  <div class="field">
+  <%= label_tag :course_password, 'Course Password' %>
+  <%= text_field_tag :course_password %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag 'Join Course' %>
+  </div>
+
+<% end %>
