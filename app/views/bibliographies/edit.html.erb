@@ -1,22 +1,22 @@
-<h1>Bibliography: <%= @bibliography.title %></h1>
+<div class="page-header">
+  <h2>Bibliography: <%= @bibliography.title %></h2>
+</div>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', course_bibliographies_path(@bibliography.course) %>
+<%= link_to 'Go Back to Your Bibliographies', course_bibliographies_path(@bibliography.course) %>
 
 <h3>Entries</h3>
 
-<p><%= link_to 'Add a New Entry', new_bibliography_entry_path(@bibliography) %>
+<p><%= link_to 'Add a New Entry', new_bibliography_entry_path(@bibliography), class: 'btn btn-primary' %>
 
 <table class="table">
 <% @bibliography.entries.each do |entry| %>
   <tr>
-    <td><%= entry.citation %></td>
-  </tr>
-  <tr>
     <td>
-      <%= link_to 'Edit', edit_bibliography_entry_path(@bibliography, entry) %> |
-      <%= link_to 'Delete', "/bibliographies/#{@bibliography.id}/entries/#{entry.id}", confirm: "Are you sure?", method: :delete %>
+      <%= link_to 'Edit', edit_bibliography_entry_path(@bibliography, entry), class: 'btn btn-small btn-primary' %> |
+      <%= link_to 'X', "/bibliographies/#{@bibliography.id}/entries/#{entry.id}", confirm: "Are you sure that you wish to delete this entry?", method: :delete, class: 'btn btn-small btn-danger' %> |
+      <%= entry.citation %>
     </td>
   </tr>
 <% end %>

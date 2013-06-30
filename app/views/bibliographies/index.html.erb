@@ -1,10 +1,14 @@
-<h1>Your Bibliographies for <%= @course.title %></h1>
+<div class="page-header">
+  <h2>Your Bibliographies for <%= @course.title %></h2>
+</div>
+
+<p><%= link_to 'Create a New Bibliography', new_course_bibliography_path, class: 'btn btn-primary' %></p>
 
 <% if @bibliographies.count > 0 %>
 <table class="table">
   <thead>
     <tr>
-      <th>Title</th>
+      <th>Bibliography Title</th>
       <th></th>
       <th></th>
     </tr>
@@ -23,7 +27,3 @@
 <% else %>
   <p>You have no bibliographies for this course.</p>
 <% end %>
-
-<br>
-
-<%= link_to 'Create a New Bibliography', new_course_bibliography_path %>
