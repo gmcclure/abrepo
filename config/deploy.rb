@@ -31,7 +31,7 @@ namespace :deploy do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
   task :setup_private_files do
-    ["settings.yml"].each do |file|
+    ["settings.yml", "database.yml"].each do |file|
       run "rm -rf #{release_path}/config/#{file}"
       run "cd #{release_path}/config && ln -sf #{shared_path}/settings/#{file} #{file}"
     end
