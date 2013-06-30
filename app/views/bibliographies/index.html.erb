@@ -1,0 +1,29 @@
+<h1>Your Bibliographies for <%= @course.title %></h1>
+
+<% if @bibliographies.count > 0 %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bibliographies.each do |bibliography| %>
+      <tr>
+        <td><%= bibliography.title %></td>
+        <td><%= link_to 'Edit', edit_course_bibliography_path(@course, bibliography) %></td>
+        <td><%= link_to 'Delete', "/courses/#{@course.id}/bibliographies/#{bibliography.id}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+  <p>You have no bibliographies for this course.</p>
+<% end %>
+
+<br>
+
+<%= link_to 'Create a New Bibliography', new_course_bibliography_path %>

@@ -1,5 +1,12 @@
 Annobiblio::Application.routes.draw do
-  resources :courses, except: :index
+  resources :courses, except: :index do
+    resources :bibliographies
+  end
+
+  # resources :users, except: [:new, :create, :edit, :update, :show, :index, :destroy] do
+  #   resources :bibliographies
+  # end
+
   get '/course/new_enrollment', to: 'courses#new_enrollment'
   post '/course/join', to: 'courses#join'
 
