@@ -14,7 +14,7 @@
     <% @bibliographies.each do |bibliography| %>
       <tr>
         <td><%= bibliography.title %></td>
-        <td><%= link_to 'Edit', edit_course_bibliography_path(@course, bibliography) %></td>
+        <td><%= link_to 'View', edit_course_bibliography_path(@course, bibliography) %></td>
         <td><%= link_to 'Delete', "/courses/#{@course.id}/bibliographies/#{bibliography.id}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

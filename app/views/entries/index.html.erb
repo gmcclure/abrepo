@@ -1,0 +1,25 @@
+<h1>Listing entries</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Citation</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @entries.each do |entry| %>
+      <tr>
+        <td><%= entry.citation %></td>
+        <td><%= link_to 'Edit', edit_bibliography_entry_path(@bibliography, entry) %></td>
+        <td><%= link_to 'Delete', "/bibliographies/#{@bibliography.id}/entry/#{entry.id}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Entry', new_bibliography_entry_path %>

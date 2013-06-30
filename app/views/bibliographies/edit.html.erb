@@ -2,6 +2,22 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Back', course_bibliographies_path %>
+<%= link_to 'Back', course_bibliographies_path(@bibliography.course) %>
 
 <h3>Entries</h3>
+
+<p><%= link_to 'Add a New Entry', new_bibliography_entry_path(@bibliography) %>
+
+<table class="table">
+<% @bibliography.entries.each do |entry| %>
+  <tr>
+    <td><%= entry.citation %></td>
+  </tr>
+  <tr>
+    <td>
+      <%= link_to 'Edit', edit_bibliography_entry_path(@bibliography, entry) %> |
+      <%= link_to 'Delete', "/bibliographies/#{@bibliography.id}/entries/#{entry.id}", confirm: "Are you sure?", method: :delete %>
+    </td>
+  </tr>
+<% end %>
+<table>

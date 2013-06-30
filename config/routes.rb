@@ -3,6 +3,10 @@ Annobiblio::Application.routes.draw do
     resources :bibliographies, except: :show
   end
 
+  resources :bibliographies, except: :show do
+    resources :entries
+  end
+
   # resources :users, except: [:new, :create, :edit, :update, :show, :index, :destroy] do
   #   resources :bibliographies
   # end
