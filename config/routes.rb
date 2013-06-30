@@ -1,6 +1,6 @@
 Annobiblio::Application.routes.draw do
   resources :courses, except: :index do
-    resources :bibliographies
+    resources :bibliographies, except: :show
   end
 
   # resources :users, except: [:new, :create, :edit, :update, :show, :index, :destroy] do

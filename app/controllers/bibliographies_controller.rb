@@ -47,7 +47,7 @@ class BibliographiesController < ApplicationController
   def update
     respond_to do |format|
       if @bibliography.update(bibliography_params)
-        format.html { redirect_to @bibliography, notice: 'Bibliography was successfully updated.' }
+        format.html { redirect_to course_bibliographies_path, notice: 'Bibliography was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -69,6 +69,7 @@ class BibliographiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_bibliography
+      @course = Course.find(params[:course_id])
       @bibliography = Bibliography.find(params[:id])
     end
 
