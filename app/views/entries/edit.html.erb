@@ -5,14 +5,3 @@
 <%= render 'form' %>
 
 <%= link_to 'Back', edit_course_bibliography_path(@bibliography.course, @bibliography) %>
-
-<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
-<script>
-  tinymce.init({
-    content_css: '/assets/application.css',
-    menu: { },
-    selector: '#entry_annotation',
-    theme: 'modern',
-    width: 613
-  });
-</script>
