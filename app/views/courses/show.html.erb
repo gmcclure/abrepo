@@ -25,8 +25,23 @@
 
 <h2>Students</h2>
 
-<ul>
+<table class="table">
+  <thead>
+    <th>
+      Nickname
+    </th>
+    <th>
+      # of Bibliographies
+    </th>
+  </thead>
   <% @course.members.each do |member| %>
-    <li><%= link_to member.nickname, student_bibliographies_path(member)  %></li>
+    <tr>
+      <td>
+        <%= link_to member.nickname, student_bibliographies_path(member)  %>
+      </td>
+      <td>
+        <%= member.bibliographies.count %>
+      </td>
+    </tr>
   <% end %>
-</ul>
+</table>
