@@ -1,0 +1,25 @@
+<div class="page-header">
+  <h1>Bibliography: <%= @bibliography.title %></h1>
+</div>
+
+<div class="page-header">
+  <h2>Student: <%= @student.nickname %></h2>
+</div>
+
+<h3>Entries</h3>
+
+<!-- <p> -->
+<!-- <%# link_to 'Add a New Entry', new_bibliography_entry_path(@bibliography), class: 'btn btn&#45;primary' %> -->
+<!-- </p> -->
+
+<table class="table">
+<% @bibliography.entries.each do |entry| %>
+  <tr>
+    <td>
+      <%# <%= link_to 'Edit', edit_bibliography_entry_path(@bibliography, entry), class: 'btn btn-small btn-primary' %>
+      <%# <%= link_to 'X', "/bibliographies/#{@bibliography.id}/entries/#{entry.id}", confirm: "Are you sure that you wish to delete this entry?", method: :delete, class: 'btn btn-small btn-danger' %>
+      <%= entry.citation %>
+    </td>
+  </tr>
+<% end %>
+<table>

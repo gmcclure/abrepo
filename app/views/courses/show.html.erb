@@ -1,5 +1,8 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h2>Course Detail: <%= @course.title %></h2>
+</div>
 
+<div class="well">
 <p>
   <strong>Title:</strong>
   <%= @course.title %>
@@ -15,5 +18,15 @@
   <%= @course.password %>
 </p>
 
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', root_url %>
+<%= link_to 'Edit', edit_course_path(@course), class: 'btn btn-small btn-primary' %> |
+<%= link_to 'Go Back to Main Page', root_url %>
+
+</div>
+
+<h2>Students</h2>
+
+<ul>
+  <% @course.members.each do |member| %>
+    <li><%= link_to member.nickname, student_bibliographies_path(member)  %></li>
+  <% end %>
+</ul>
