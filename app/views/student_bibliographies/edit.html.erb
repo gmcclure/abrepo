@@ -6,7 +6,7 @@
   <h2>Student: <%= @student.nickname %></h2>
 </div>
 
-<h3>Entries</h3>
+<h3><%= @bibliography.entries.count %> Entries</h3>
 
 <!-- <p> -->
 <!-- <%# link_to 'Add a New Entry', new_bibliography_entry_path(@bibliography), class: 'btn btn&#45;primary' %> -->
@@ -19,7 +19,15 @@
       <%# <%= link_to 'Edit', edit_bibliography_entry_path(@bibliography, entry), class: 'btn btn-small btn-primary' %>
       <%# <%= link_to 'X', "/bibliographies/#{@bibliography.id}/entries/#{entry.id}", confirm: "Are you sure that you wish to delete this entry?", method: :delete, class: 'btn btn-small btn-danger' %>
       <%= entry.citation %>
+      <% if not entry.annotation.strip.empty? %>
+        <i class="icon-comment" data-entry="<%= current_user.id %>-<%= entry.id %>"></i>
+      <% end %>
     </td>
   </tr>
 <% end %>
 <table>
+
+<div id="entry-modal" class="modal hide fade">
+  <div class="modal-body">
+  </div>
+</div>

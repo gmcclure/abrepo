@@ -64,6 +64,17 @@ class EntriesController < ApplicationController
     end
   end
 
+  # GET
+  def get_annotation
+    @entry = Entry.find(params[:entry_id])
+    res = Array.new
+    res << @entry.annotation
+
+    respond_to do |format|
+      format.json { render json: res, status: :ok }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_entry
