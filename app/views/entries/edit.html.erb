@@ -4,12 +4,14 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Back', edit_course_bibliography_path(@bibliography.course, @bibliography) %>
+<%= link_to 'Go Back to Bibliography', edit_course_bibliography_path(@bibliography.course, @bibliography) %>
+
+<div id="main_stylesheet" style="display:none;"><%= asset_path('application.css') %></div>
 
 <script>
   var rt_editor = function() {
     tinymce.init({
-      content_css: '/assets/application.css',
+      content_css: $('#main_stylesheet').html(),
       menu: { },
       selector: '#entry_annotation',
       width: 613
