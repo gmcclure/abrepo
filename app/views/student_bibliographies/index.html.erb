@@ -14,6 +14,7 @@
 
   <tbody>
     <% @student.bibliographies.each do |bibliography| %>
+      <% if bibliography.course_id == @course.id %>
       <tr>
         <td>
           <%= link_to 'View', edit_student_bibliography_path(@student, bibliography), class: 'btn btn-small btn-primary' %> |
@@ -22,6 +23,7 @@
           <%= bibliography.title %>
         </td>
       </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

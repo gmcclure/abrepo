@@ -37,10 +37,10 @@
   <% @course.members.each do |member| %>
     <tr>
       <td>
-        <%= link_to member.nickname, student_bibliographies_path(member)  %>
+        <%= link_to member.nickname, student_bibliographies_path(member, @course.id)  %>
       </td>
       <td>
-        <%= member.bibliographies.count %>
+        <%= member.bibliographies.count { |b| b.course_id == @course.id } %>
       </td>
     </tr>
   <% end %>

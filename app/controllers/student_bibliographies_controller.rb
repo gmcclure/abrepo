@@ -1,6 +1,7 @@
 class StudentBibliographiesController < ApplicationController
   def index
     @student = User.find(params[:user_id])
+    @course = Course.find(params[:course_id])
   end
 
   def edit

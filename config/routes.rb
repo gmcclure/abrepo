@@ -11,7 +11,7 @@ Annobiblio::Application.routes.draw do
 
   get '/student/:user_id/entry/:entry_id', to: 'entries#get_annotation', as: 'entry_annotation'
 
-  get '/student/:user_id/bibliographies', to: 'student_bibliographies#index', as: 'student_bibliographies'
+  get '/student/:user_id/bibliographies/:course_id', to: 'student_bibliographies#index', as: 'student_bibliographies'
   get '/student/:user_id/bibliography/:bibliography_id/edit', to: 'student_bibliographies#edit', as: 'edit_student_bibliography'
 
   get '/course/new_enrollment', to: 'courses#new_enrollment'
