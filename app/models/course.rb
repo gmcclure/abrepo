@@ -1,5 +1,5 @@
 class Course < ActiveRecord::Base
-  has_many :enrollments
+  has_many :enrollments, dependent: :destroy
   has_many :members, -> { where("enrollments.instructor = ?", false) }, through: :enrollments, source: :user
   has_many :bibliographies, dependent: :destroy
 
