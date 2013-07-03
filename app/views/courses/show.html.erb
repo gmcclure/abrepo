@@ -40,7 +40,7 @@
         <%= link_to member.nickname, student_bibliographies_path(member, @course.id)  %>
       </td>
       <td>
-        <%= member.bibliographies.count { |b| b.course_id == @course.id } %>
+        <%= Bibliography.where(user_id: member.id, course_id: @course.id).count %>
       </td>
     </tr>
   <% end %>
