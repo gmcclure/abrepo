@@ -52,6 +52,10 @@ gem 'capistrano', group: :development
 
 gem 'newrelic_rpm'
 
+gem 'cancan'
+
+gem 'thin', group: :development
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
